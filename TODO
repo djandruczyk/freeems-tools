@@ -1,0 +1,20 @@
+
+Textual freeems-streaming reader:
+
+Purpose: To connect to live ECU or simulator and display the variables in the
+stream, via either a textual or graphical interface, with logging to logfiles
+of various formats, i.e. MS style (tab sep values), XML, JSON, etc)
+
+Suggested UI's include ncurses, GTK+ and Qt.
+
+Pseudocode
+
+main
+  init threads
+  init startup datastructures
+  init serial
+  ecu  detection?  is it needed?
+  start reader/parser engine thread
+  detect txt/graphical environment
+  load appropriate gui plugin
+  start gui display
