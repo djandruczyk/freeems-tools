@@ -11,10 +11,26 @@ Pseudocode
 
 main
   init threads
-  init startup datastructures
+  init startup datastructures/settings
   init serial
   ecu  detection?  is it needed?
   start reader/parser engine thread
   detect txt/graphical environment
   load appropriate gui plugin
   start gui display
+
+
+Serial Init
+  check for port presence
+  open port
+  setup port params
+  create g_io_channel and watch
+
+Serial I/O
+  g_io_channel watch will poll port for us and kickoff handler anytime data 
+  arrives to be parsed.  Not sure if we want to pump ythe data over to a thread
+  or not so it doesn't get in the way of any gui shit.
+
+Gui
+  need some sort of stdized plugin API so that the gui side can be 
+  decoupled from the I/O side.
